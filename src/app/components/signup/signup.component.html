@@ -1,0 +1,63 @@
+<div class="row m-5">
+    <div class="col-md-6 offset-3 ">
+        <div class="card">
+            <div class="card-body">
+                <form #signform=ngForm (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input name="email" type="email" class="form-control" id="email"
+                               aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="form.email" required>
+
+
+                        <span class="text text-danger" *ngIf="error">{{error.email}}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input name="name" type="text" class="form-control" id="name"
+                               aria-describedby="emailHelp" placeholder="Enter name" [(ngModel)]="form.name" required>
+
+                        <span class="text text-danger" *ngIf="error">{{error.name}}</span>
+                    </div>
+
+
+
+
+                    <div class="form-group ">
+                        <label for="inputPasswordConfirmation3" >Password</label>
+                        <input type="password" name="password" class="form-control" id="inputPasswordConfirmation3" placeholder="Confirm Password"
+                               [(ngModel)]="form.password" required>
+
+                        <span class="text text-danger" *ngIf="error">{{error.password}}</span>
+
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="inputPassword3" >Confirm Password</label>
+                        <input type="password" name="password_confirmation" class="form-control" id="inputPassword3" placeholder="Password" [(ngModel)]="form.password_confirmation"
+                               required>
+                    </div>
+
+
+
+
+                    <div class="form-group row ">
+                        <div class="col-md-10 offset-1">
+                            <button type="submit" class="btn btn-primary" [disabled]="!signform.valid">Sign up</button>
+                            <button type="submit" class="btn btn-success float-right" routerLink="/login">Login
+                            </button>
+                        </div>
+
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

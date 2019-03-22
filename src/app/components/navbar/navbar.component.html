@@ -1,0 +1,12 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+    <a class="navbar-brand" href="#">Home</a>
+
+    <div>
+        <a  *ngIf="!userInfo.isAuth()" class="navbar-brand" routerLink="login">Login</a>
+        <a  *ngIf="userInfo.isAuth()" class="navbar-brand" routerLink="profile">Profile</a>
+        <a   *ngIf="userInfo.isAuth()" class="navbar-brand nav-link" href="#"   (click)="logOut()">LogOut</a>
+
+    </div>
+
+</nav>
+
