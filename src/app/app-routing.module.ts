@@ -8,10 +8,11 @@ import {RequestPasswordComponent} from './password/request-password/request-pass
 import {ProfileComponent} from './components/profile/profile.component';
 import {HomeComponent} from './components/home/home.component';
 import {AuthGuardServiceService} from './auth/auth-guard-service.service';
+import {BeforeLoggedInGuardService} from './auth/before-logged-in-guard.service';
 
 const routes: Routes = [
     {
-      path:'login',component:LoginComponent,
+      path:'login',component:LoginComponent,canActivate : [BeforeLoggedInGuardService]
 
     },
     {
@@ -19,19 +20,19 @@ const routes: Routes = [
 
     },
     {
-        path:'sing_up',component:SignupComponent,
+        path:'sing_up',component:SignupComponent,canActivate : [BeforeLoggedInGuardService]
 
     },
     {
-        path:'request_password_reset',component:RequestPasswordComponent,
+        path:'request_password_reset',component:RequestPasswordComponent,canActivate : [BeforeLoggedInGuardService]
 
     },
     {
-        path:'response_password_reset',component:ResponsePasswordComponent,
+        path:'response_password_reset',component:ResponsePasswordComponent,canActivate : [BeforeLoggedInGuardService]
 
     },
     {
-        path:'profile',component:ProfileComponent,
+        path:'profile',component:ProfileComponent,canActivate: [AuthGuardServiceService]
 
     },
     { path: '', redirectTo: 'login', pathMatch: 'full' },

@@ -2,9 +2,9 @@
     <a class="navbar-brand" href="#">Home</a>
 
     <div>
-        <a  *ngIf="!userInfo.isAuth()" class="navbar-brand" routerLink="login">Login</a>
-        <a  *ngIf="userInfo.isAuth()" class="navbar-brand" routerLink="profile">Profile</a>
-        <a   *ngIf="userInfo.isAuth()" class="navbar-brand nav-link" href="#"   (click)="logOut()">LogOut</a>
+        <a  *ngIf="!this.isLoggedIn" class="navbar-brand" routerLink="login">Login</a>
+        <a  *ngIf="this.isLoggedIn" class="navbar-brand" routerLink="profile">Profile</a>
+        <a   *ngIf="this.isLoggedIn" class="navbar-brand " href="#"   (click)="logOut($event)">LogOut</a>
 
     </div>
 

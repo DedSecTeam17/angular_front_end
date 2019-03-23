@@ -16,6 +16,8 @@ import  {AuthService} from './auth/auth-service.service';
 import {UserInformationService} from './auth/user-information.service';
 import { HomeComponent } from './components/home/home.component';
 import {AuthGuardServiceService} from './auth/auth-guard-service.service';
+import {AuthStatesService} from './auth/auth-states.service';
+import {BeforeLoggedInGuardService} from './auth/before-logged-in-guard.service';
 
 
 @NgModule({
@@ -36,7 +38,7 @@ import {AuthGuardServiceService} from './auth/auth-guard-service.service';
       FormsModule,
       HttpClientModule
   ],
-  providers: [AuthService,UserInformationService,AuthGuardServiceService],
+  providers: [AuthService,UserInformationService,AuthGuardServiceService,AuthStatesService,BeforeLoggedInGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

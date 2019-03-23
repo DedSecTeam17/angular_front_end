@@ -5,9 +5,9 @@ import {UserInformationService} from '../../auth/user-information.service';
 
 import {UserInfo} from '../../auth/models/UserInfo';
 import {ActivatedRoute, Router} from '@angular/router';
+import {AuthStatesService} from '../../auth/auth-states.service';
 
 
-require('../../auth/models/UserInfo');
 
 @Component({
     selector: 'app-login',
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
 
     constructor(private  authService: AuthService, private  userInfoService: UserInformationService, private router: Router,
-                private route: ActivatedRoute) {
+                private route: ActivatedRoute, private  authState : AuthStatesService) {
     }
 
 
@@ -43,6 +43,8 @@ export class LoginComponent implements OnInit {
             .subscribe((data) => {
                 this.userInfoService.setUser(data.access_token, data.user);
                 this.userInfoService.saveUserInfoInLocalStorage();
+                // change is logged in state to true
+                this.authState.changeIsLoggedInState(true);
                 this.router.navigateByUrl('home');
             }, (err) => {
                 this.handleErr(err);
