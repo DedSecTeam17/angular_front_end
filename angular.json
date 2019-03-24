@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "../node_modules/ng-snotify/styles/{STYLE_NAME}.css",
               "src/styles.css"
             ],
             "scripts": []

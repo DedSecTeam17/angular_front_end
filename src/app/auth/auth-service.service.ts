@@ -22,5 +22,11 @@ export class AuthService {
   }
 
 
+  sendEmailForPasswordReset(form_data) : Observable<Object>{
+
+    return this.http.post('http://127.0.0.1:8000/api/auth/sendPasswordRestLink',form_data);
+
+  }
+
 
 }
