@@ -44,7 +44,7 @@ isLoading:boolean=false;
         this.authService.signIn(this.form)
             .subscribe((data) => {
                 this.isLoading=false;
-                // this.userInfoService.setUser(data.access_token, data.user);
+                this.userInfoService.setUser(data['access_token'], data['user']);
                 this.userInfoService.saveUserInfoInLocalStorage();
                 // change is logged in state to true
                 this.authState.changeIsLoggedInState(true);

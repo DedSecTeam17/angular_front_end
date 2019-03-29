@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
 
     onSubmit() {
         this.authService.signUp(this.form).subscribe((response) => {
-            this.userInfoService.setUser(response.access_token , response.user);
+            this.userInfoService.setUser(response['access_token'] , response['user']);
             this.userInfoService.saveUserInfoInLocalStorage();
             this.router.navigateByUrl('home');
         }, (err) => {

@@ -30,7 +30,6 @@ export class RequestPasswordComponent implements OnInit {
 
     onSubmit(){
         this.isLoading=true;
-
         this.authService.sendEmailForPasswordReset(this.form)
         .subscribe((response)=>{
           this.notify.success("Email Sent Successfully" );
